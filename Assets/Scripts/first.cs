@@ -9,17 +9,19 @@ using UnityEngine.UI;
 public class first : MonoBehaviour
 {
     bool isballintheground = true;
-    private int score;
 
     private int goldCoins;
     private int goldCoinCount = 4;
 
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI winText;
+    private GameObject scoreObject;
 
     private void Start() {
-        score = 0;
         scoreText.text = "Score: 0";
+        scoreObject = GameObject.Find("scoreObject");
+        scoreObject.GetComponent<scoreKeeper>().score = 0;
+        
     }
 
     void Update()
@@ -58,8 +60,8 @@ public class first : MonoBehaviour
     }
     
     void OnTriggerEnter(Collider col) {
-        score += col.gameObject.GetComponent<coinscript>().point;
-        scoreText.text = "Score: " + score;
+        scoreObject.GetComponent<scoreKeeper>().score += col.gameObject.GetComponent<coinscript>().point;
+        scoreText.text = "Score: " + scoreObject.GetComponent<scoreKeeper>().score;
         goldCoins += col.gameObject.GetComponent<coinscript>().point == 2 ? 1 : 0;
         Destroy(col.gameObject);
         if (goldCoins == goldCoinCount) {

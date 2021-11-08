@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,10 +13,16 @@ public class WallScript : MonoBehaviour {
     [SerializeField] private float distance;
 
     private bool goingUp = true;
+
     // Start is called before the first frame update
     void Start() {
+        if (this.gameObject.GetComponent<Rigidbody>() == null) {
+            this.gameObject.AddComponent<Rigidbody>();
+        }
+        
         position = transform.position;
         wallRB = this.gameObject.GetComponent<Rigidbody>();
+        wallRB.useGravity = false;
         upperPosition = position + distance * Vector3.up;
 
         StartCoroutine(moveCoroutine());

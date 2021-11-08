@@ -208,7 +208,6 @@ GameObject:
   - component: {fileID: 558544229}
   - component: {fileID: 558544232}
   - component: {fileID: 558544231}
-  - component: {fileID: 558544230}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -239,18 +238,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &558544230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 558544228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5600c5c44edd56e43b411626a384a7be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &558544231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -634,6 +621,7 @@ GameObject:
   - component: {fileID: 1246214286}
   - component: {fileID: 1246214288}
   - component: {fileID: 1246214287}
+  - component: {fileID: 1246214289}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -690,10 +678,10 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 10 POINTS
+  m_Text: 
 --- !u!222 &1246214288
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -702,6 +690,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1246214285}
   m_CullTransparentMesh: 1
+--- !u!114 &1246214289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246214285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 212edafebc3b30147b810e9a1e8ccf5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1544760017
 GameObject:
   m_ObjectHideFlags: 0
@@ -1192,7 +1192,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &2134084764
 MonoBehaviour:
   m_ObjectHideFlags: 0
