@@ -3,6 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class coinscript : MonoBehaviour {
-    [SerializeField] public int point;
+public class winScript : MonoBehaviour
+{
 }

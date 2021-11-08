@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class GOLDCAPSULE : MonoBehaviour
 {
-    void OnTriggerEnter(Collider collider)
-    {
+    void OnTriggerEnter(Collider collider) {
         
-        END.instance.Win();
     }
 }

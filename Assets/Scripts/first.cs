@@ -1,12 +1,27 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class first : MonoBehaviour
 {
     bool isballintheground = true;
-    // Update is called once per frame
+    private int score;
+
+    private int goldCoins;
+    private int goldCoinCount = 4;
+
+    [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI winText;
+
+    private void Start() {
+        score = 0;
+        scoreText.text = "Score: 0";
+    }
+
     void Update()
     {
         Camera.main.transform.position = new Vector3(this.transform.position.x, Camera.main.transform.position.y, Camera.main.transform.position.z);
@@ -40,23 +55,20 @@ public class first : MonoBehaviour
         {
             SceneManager.LoadScene("end");
         }
-
-        void OnCollisionEnter(Collision col)
-        {
-            Debug.Log("we collide with" + col.gameObject.name);
-            isballintheground = true;
-            
-            
+    }
+    
+    void OnTriggerEnter(Collider col) {
+        score += col.gameObject.GetComponent<coinscript>().point;
+        scoreText.text = "Score: " + score;
+        goldCoins += col.gameObject.GetComponent<coinscript>().point == 2 ? 1 : 0;
+        Destroy(col.gameObject);
+        if (goldCoins == goldCoinCount) {
+            win();
         }
-        int count = 0;
-        void OnTriggerEnter(Collider col)
-        {
-            Debug.Log("we trigger with" + col.gameObject.name);
-            col.gameObject.SetActive(false);
-            count += 1;
-            Debug.Log("current coins" + count.ToString());
+    }
 
-        }
+    public void win() {
+        winText.gameObject.SetActive(true);
     }
 }
 
